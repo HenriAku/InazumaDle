@@ -1,0 +1,600 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #3a5566;
+    font-family: Arial, sans-serif;
+    background-color: #006CB2;
+}
+
+/* Navigation */
+nav {
+    background-color: black;
+    position:fixed;
+    top: 0;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+nav ul li {
+    padding: 15px 30px;
+}
+
+nav ul li img {
+    width: 25%;
+    margin-top: -15px;
+}
+
+nav ul li a {
+    font-size: 150%;
+    color: white;
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    color: rgb(141, 176, 230);
+    transform: scale(1.1);
+}
+
+/* Accueil */
+#Accueil {
+    background: url('../../images/image.png') no-repeat center center/cover;
+    color: white;
+}
+
+#Accueil div{
+    padding: 10%;
+}
+
+#Accueil h1 {
+    font-size: 6em;
+    margin-bottom: 10px;
+}
+
+#Accueil h2 {
+    font-size: 1.5em;
+    max-width: 600px;
+    text-align: center;
+    margin-top: 3%;
+}
+
+#Accueil p {
+    max-width: 600px;
+    font-size: 1.5em;
+    margin-left: 8%;
+}
+
+#Accueil button {
+    background-color: orange;
+    color: #F5F5F5;
+    cursor: pointer;
+    margin-top: 3%;
+    margin-left: 13%;
+    font-size: 200%;
+    border-radius: 20px;
+    width: 21vh;
+    height: 5vh;
+    border: none;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+#Accueil button:hover {
+    background-color: rgb(245, 219, 172);
+    transform: scale(1.1);
+}
+
+.hero-image {
+    width: 60%;
+    height: auto;
+    margin-top: -750px;
+    margin-left: 45em;
+    max-width: 100%;
+}
+
+
+/* Annonce */
+#Annonce {
+    background-color: #F5F5F5;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+#Annonce h2{
+    color: #343434;
+    font-size: 2.5em;
+    margin-bottom: 2%;
+}
+
+.news-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.news-item {
+    background: #343434;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+}
+
+/* Présentation */
+#Présentation {
+    background: #0055aa;
+    color: white;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+#Présentation h2{
+    color: #F5F5F5;
+    font-size: 2.5em;
+    margin-bottom: 2%;
+}
+
+#Présentation h3{
+    color: #343434;
+    font-size: 1.5em;
+    margin-bottom: 2%;
+}
+
+#Présentation img{
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.modes {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.mode {
+    background: white;
+    color: black;
+    padding: 20px;
+    border-radius: 10px;
+    width: 500px;
+}
+
+#Présentation p {
+    font-size: 2.2vh;
+    align-items: center;
+    margin-top: 5%;
+    padding-bottom: 5%;
+}
+
+#Présentation ,h1{
+    font-size: 2em;
+}
+
+#Telechargement {
+    background: #F5F5F5;
+    color: white;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+#Telechargement h2{
+    color: #343434;
+    font-size: 2.5em;
+    margin-bottom: 2%;
+}
+
+#Telechargement h3{
+    color: #343434;
+    font-size: 1.5em;
+    margin-bottom: 2%;
+}
+
+#Telechargement button {
+    background-color: orange;
+    color: #F5F5F5;
+    cursor: pointer;
+    font-size: 200%;
+    border-radius: 20px;
+    width: 21vh;
+    height: 5vh;
+    border: none;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+#Telechargement button:hover {
+    background-color: rgb(245, 219, 172);
+    transform: scale(1.1);
+}
+
+#Telechargement p {
+    font-size: 2.2vh;
+    align-items: center;
+    margin-top: 5%;
+    color: #343434 ;
+}
+
+footer {
+    background: #343434;
+    color: white;
+    padding-top: 10px;
+    padding-left: 20px;
+}
+
+footer div{
+    margin-top: 5px;
+    margin-left: 20px;
+    display: flex;
+}
+
+footer p{
+    margin-left: 20px;
+}
+
+footer a 
+{
+    width: 50px;
+    color: white;
+}
+
+footer img{
+    width: 10%;
+    height: auto;
+    margin-top: -100px;
+    margin-left: 100em;
+    max-width: 100%;
+}
+
+.copy{
+    text-align: center;
+}
+
+
+/* Responsive : Moins de 1024px */
+@media screen and (max-width: 1024px) {
+    nav{
+        height: 10%;
+    }
+
+    nav ul li {
+        text-align: center;
+        font-size: 50%;
+    }
+
+    .hero-image {
+        width: 80%;
+        margin: 0 auto;
+        display: block;
+    }
+
+    #Accueil {
+        text-align: center;
+        padding: 5%;
+    }
+
+    #Accueil h1 {
+        font-size: 2.8em;
+    }
+
+    #Accueil h2, #Accueil p {
+        font-size: 1.1em;
+    }
+
+    #Accueil button {
+        font-size: 1.3em;
+        width: 60%;
+        padding: 10px;
+    }
+
+    .news-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .news-item {
+        width: 90%;
+        margin-bottom: 10px;
+    }
+
+    .modes {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .mode {
+        width: 90%;
+        margin-bottom: 10px;
+    }
+
+    #Telechargement button {
+        font-size: 1.4em;
+        width: 60%;
+        padding: 10px;
+    }
+
+    footer {
+        text-align: center;
+    }
+
+    footer img {
+        width: 50%;
+        margin: 10px auto;
+        display: block;
+    }
+}
+
+/* Responsive : Moins de 768px */
+@media screen and (max-width: 768px) {
+    nav{
+        height: 10%;
+    }
+
+    nav ul li {
+        text-align: center;
+        font-size: 50%;
+    }
+
+    .hero-image {
+        width: 90%;
+        margin: 0 auto;
+        display: block;
+        position: relative;
+        margin-top: -50px;
+    }
+
+    #Accueil h1 {
+        font-size: 6vh;
+    }
+
+    #Accueil h2 {
+        font-size: 2.5vh;
+        padding: 5%;
+    }
+
+    #Accueil button {
+        font-size: 130%;
+        width: 70%;
+        height: auto;
+        padding: 10px;
+    }
+
+    #Annonce {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+    }
+
+    .news-container {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .news-item {
+        width: 90%;
+        margin-bottom: 10px;
+    }
+
+    #Présentation {
+        padding: 30px 10px;
+    }
+
+    .modes {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .mode {
+        width: 90%;
+        margin-bottom: 15px;
+    }
+
+    #Telechargement {
+        padding: 30px 10px;
+    }
+
+    #Telechargement button {
+        font-size: 130%;
+        width: 70%;
+        height: auto;
+        padding: 10px;
+    }
+
+    footer {
+        text-align: center;
+        padding: 10px;
+    }
+
+    footer img {
+        width: 30%;
+    }
+}
+
+/* Responsive : Moins de 480px */
+@media screen and (max-width: 480px) {
+    #Accueil h1 {
+        font-size: 2rem;
+    }
+
+    #Accueil h2, #Accueil p {
+        font-size: 1rem;
+    }
+
+    .news-container, .modes {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    footer img {
+        width: 40px;
+    }
+
+    #Telechargement button {
+        font-size: 120%;
+        width: 70%;
+        height: auto;
+        padding: 8px;
+    }
+}
+
+/* Responsive pour écrans plus larges que 1024px mais plus petits que 1400px */
+@media screen and (max-width: 1400px) and (min-width: 1024px) {
+    .hero-image {
+        width: 70%;
+        max-width: 850px;
+        margin: 0 auto;
+        display: block;
+    }
+
+    footer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 20px;
+    }
+
+    footer img {
+        width: 10%;
+        max-width: 80px;
+        margin: 10px auto;
+    }
+
+    #Telechargement {
+        text-align: center;
+        padding: 20px;
+    }
+
+    #Telechargement button {
+        font-size: 1.4em;
+        width: 50%;
+        max-width: 250px;
+        height: auto;
+        padding: 10px;
+    }
+}
+
+/* Responsive : Moins de 420px */
+@media screen and (max-width: 420px) {
+    nav{
+        height: 10%;
+    }
+    nav ul{
+        margin-left: -2%;
+    }
+    nav ul li {
+        margin-left: -5%;
+        font-size: 30%;
+    }
+
+    #Accueil {
+        height: auto;
+        padding: 10% 5%;
+        text-align: center;
+    }
+
+    #Accueil h1 {
+        font-size: 6vh;
+    }
+
+    #Accueil h2 {
+        font-size: 2.5vh;
+        padding: 5%;
+    }
+
+    #Accueil button {
+        font-size: 130%;
+        width: 70%;
+        height: auto;
+        padding: 10px;
+    }
+
+    #Annonce {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+    }
+
+    .news-container {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .news-item {
+        width: 90%;
+        margin-bottom: 10px;
+    }
+
+    #Présentation {
+        padding: 30px 10px;
+    }
+
+    .modes {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .mode {
+        width: 90%;
+        margin-bottom: 15px;
+    }
+
+    #Telechargement {
+        padding: 30px 10px;
+    }
+
+    #Telechargement button {
+        font-size: 130%;
+        width: 70%;
+        height: auto;
+        padding: 10px;
+    }
+
+    footer {
+        text-align: center;
+    }
+
+    footer img {
+        width: 30%;
+    }
+}
+
+/* Responsive pour écrans entre 1403px et 1798px */
+@media screen and (max-width: 1798px) and (min-width: 1403px) {
+    .hero-image {
+        width: 65%;  /* Réduit légèrement la largeur */
+        max-width: 1100px; /* Limite la taille maximale */
+        margin: 0 auto; /* Recentre l'image */
+        display: block;
+    }
+
+    footer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 20px;
+    }
+
+    footer img {
+        width: 12%;  /* Réduit légèrement la taille */
+        max-width: 100px;  /* Limite la taille maximale */
+        margin: 10px auto;
+    }
+}
+
+
+
+
