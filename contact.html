@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="icon" type="image/png" href="images/icon.png">
+	<link rel="stylesheet" href="src/css/contact.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Contact InazumaDLE</title>
+</head>
+<body>
+	<nav>
+		<ul>
+			<li><a href="index.html">Accueil       </a></li>
+			<li><a href="index.html">Actualités    </a></li>
+			<li><a href="index.html">À Propos      </a></li>
+			<li><a href="index.html">Téléchargement</a></li>
+			<li><a href="contact.html">Contact       </a></li>
+		</ul>
+	</nav>
+	<div class="fond">
+		<form id="form">
+			<h1>Contacter nous</h1>
+	
+				<p id="error"></p>
+	
+				<div>
+					<label for="mail">Email :</label>
+					<input type="email" id="mail" name="email">
+				</div>
+				<div>
+					<label for="objet">Objet :</label>
+					<input type="text" id="objet" name="objet">		
+				</div>
+				<div>
+					<label for="description">Votre message :</label>
+					<textarea name="user_msg" id="msg"></textarea>
+				</div>
+	
+			<input type="submit" id="btn">
+		</form>
+	</div>
+
+	<footer>
+		<h3>Created by :</h3>
+		<div>
+			<a href="https://x.com/ItsAkuuu_">HenriAku</a>
+			<p>: Développemt application et site web </p>
+		</div>
+		<div>
+			<a href="https://x.com/LeMarouuy">Marouyy</a> 
+			<p> : Communication, design application, Information</p>
+		</div>
+		<div>
+			<a href="https://github.com/RafaelD135">Rafael</a> 
+			<p>: Design site web</p>
+		</div>
+		<img src="images/logo.png" alt="logo d'inazuma Eleven">
+		<p class="copy">&copy; 2024 - 2025 Inazuma Dle - Tous droits réservés</p>
+	</footer>
+
+
+	<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+	<script src="src/contact.js" defer></script>
+
+</body>
+</html>

@@ -1,0 +1,256 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #006CB2;
+    font-family: Arial, sans-serif;
+}
+
+/* Navigation */
+nav {
+    background-color: black;
+    position:fixed;
+    top: 0;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+nav ul li {
+    padding: 15px 30px;
+}
+
+nav ul li img {
+    width: 25%;
+    margin-top: -15px;
+}
+
+nav ul li a {
+    font-size: 150%;
+    color: white;
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    color: rgb(141, 176, 230);
+    transform: scale(1.1);
+}
+
+.fond
+{
+	background: url('../../images/image.png') no-repeat center center/cover;
+	padding-top: 100px;
+	padding-bottom: 20px;
+}
+
+/* form */
+form{
+	background-color: white;
+	width: 45%;
+	margin: auto;
+	padding: 2%;
+	border: #343434 5px solid;
+	border-radius: 50px;
+}
+
+form h1{
+	text-align: center;
+}
+
+form div{
+	margin-top: 5%;
+	display: flex;
+	flex-direction:column ;
+}
+
+form div input {
+	margin-top: 2%;
+    height: 50px; 
+    font-size: 16px; 
+    padding: 10px; 
+    border-radius: 10px; 
+}
+
+form div textarea {
+	resize:none;
+	margin-top: 2%;
+    height: 200px; 
+    font-size: 16px; 
+    padding: 10px; 
+    border-radius: 10px; 
+}
+
+#btn {
+    display: block; 
+    margin: 3% auto 0 auto; 
+    background-color: orange;
+    color: #F5F5F5;
+    cursor: pointer;
+    font-size: 180%;
+    border-radius: 20px;
+    width: 19vh;
+    height: 4vh;
+    border: none;
+    transition: background-color 0.3s, transform 0.2s;
+    text-align: center;
+}
+
+#btn:hover {
+    background-color: rgb(245, 219, 172);
+    transform: scale(1.1);
+}
+
+
+/* footer */
+
+footer {
+    background: #343434;
+    color: white;
+    padding-top: 10px;
+    padding-left: 20px;
+}
+
+footer div{
+    margin-top: 5px;
+    margin-left: 20px;
+    display: flex;
+}
+
+footer p{
+    margin-left: 20px;
+}
+
+footer a 
+{
+    width: 50px;
+    color: white;
+}
+
+footer img{
+    width: 10%;
+    height: auto;
+    margin-top: -100px;
+    margin-left: 100em;
+    max-width: 100%;
+}
+
+.copy{
+    text-align: center;
+}
+
+/* Responsive : Moins de 1024px */
+@media screen and (max-width: 1024px) {
+    nav{
+        height: 10%;
+    }
+
+    nav ul li {
+        text-align: center;
+        font-size: 50%;
+    }
+
+    footer {
+        text-align: center;
+    }
+
+    footer img {
+        width: 50%;
+        margin: 10px auto;
+        display: block;
+    }
+}
+
+/* Responsive : Moins de 768px */
+@media screen and (max-width: 768px) {
+    nav{
+        height: 10%;
+    }
+
+    nav ul li {
+        text-align: center;
+        font-size: 50%;
+    }
+
+    footer {
+        text-align: center;
+        padding: 10px;
+    }
+
+    footer img {
+        width: 30%;
+    }
+}
+
+/* Responsive : Moins de 480px */
+@media screen and (max-width: 480px) {
+    footer img {
+        width: 40px;
+    }
+}
+
+/* Responsive pour écrans plus larges que 1024px mais plus petits que 1400px */
+@media screen and (max-width: 1400px) and (min-width: 1024px) {
+    footer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 20px;
+    }
+
+    footer img {
+        width: 10%;
+        max-width: 80px;
+        margin: 10px auto;
+    }
+}
+
+/* Responsive : Moins de 420px */
+@media screen and (max-width: 420px) {
+    nav{
+        height: 10%;
+    }
+    nav ul{
+        margin-left: -2%;
+    }
+    nav ul li {
+        margin-left: -5%;
+        font-size: 30%;
+    }
+
+    footer {
+        text-align: center;
+    }
+
+    footer img {
+        width: 30%;
+    }
+}
+
+/* Responsive pour écrans entre 1403px et 1798px */
+@media screen and (max-width: 1798px) and (min-width: 1403px) {
+    footer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 20px;
+    }
+
+    footer img {
+        width: 12%;  /* Réduit légèrement la taille */
+        max-width: 100px;  /* Limite la taille maximale */
+        margin: 10px auto;
+    }
+}
