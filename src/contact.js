@@ -1,4 +1,4 @@
-emailjs.init(process.env.EMAILJS_PUBLIC_KEY);
+emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
 
 const form  = document.getElementById("form" );
 
