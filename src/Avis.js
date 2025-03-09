@@ -4,7 +4,7 @@ const avisform = document.getElementById("form");
 
 async function ajouterAvis(newAvis) {
     try {
-        const response = await fetch("/.netlify/functions/firebase", {
+        const response = await fetch("https://inazumadle.netlify.app/.netlify/functions/getAvis", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(newAvis)
@@ -54,7 +54,7 @@ async function AffichageAvis() {
     lstAvis.textContent = "";
 
     try {
-        const response = await fetch("/.netlify/functions/getAvis");
+        const response = await fetch("https://inazumadle.netlify.app/.netlify/functions/getAvis");
         const data = await response.json();
 
         data.forEach(avis => {
