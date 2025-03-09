@@ -1,78 +1,79 @@
-const firebaseConfig = {
-    apiKey: "AIzaSyBNQbBzLC93C0sRZ6QDxKItXwhT2Nw-DmA",
-    authDomain: "inazumadle-858d7.firebaseapp.com",
-    projectId: "inazumadle-858d7",
-    storageBucket: "inazumadle-858d7.firebasestorage.app",
-    messagingSenderId: "448835816107",
-    appId: "1:448835816107:web:360a015e036307fa6f05ee",
-    measurementId: "G-RYX5DLVYWR"
-};
-
-// Initialiser Firebase
-firebase.initializeApp(firebaseConfig);
-const db = firebase.firestore();
-
-
 const avisform = document.getElementById("form");
 
-avisform.addEventListener("submit", (event) => {
-	event.preventDefault();
+// On ne met plus les clés Firebase ici ! Tout passe par Netlify Functions.
 
-	const error = document.getElementById("error");
-	const pseudo = document.getElementById("pseudo");
-	const note   = document.getElementById("note");
-	const comm   = document.getElementById("commentaire");
+async function ajouterAvis(newAvis) {
+    try {
+        const response = await fetch("/.netlify/functions/firebase", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(newAvis)
+        });
 
-	if(pseudo.value.lenght === 0 || comm.value.lenght === 0)
-	{
-		error.textContent = "Veuillez remplir tous les champs !";
-		error.classList.add("error");
-	}
-
-	const newAvis = {
-		pseudoAvis : pseudo.value,
-		noteAvis : note.value,
-		commAvis : comm.value,
-		date: new Date().toLocaleDateString()
-	};
-
-
-	//ajout avis Firebase
-    db.collection("avis").add(newAvis)
-        .then(() => {
+        const data = await response.json();
+        if (response.ok) {
             alert("Avis ajouté !");
             avisform.reset();
             AffichageAvis();
-        })
-        .catch(error => console.error("Erreur :", error));
+        } else {
+            console.error("Erreur:", data.error);
+        }
+    } catch (error) {
+        console.error("Erreur lors de l'envoi:", error);
+    }
+}
 
-	error.classList.remove("error");
+// Appel de la fonction au submit du formulaire
+avisform.addEventListener("submit", (event) => {
+    event.preventDefault();
 
+    const error = document.getElementById("error");
+    const pseudo = document.getElementById("pseudo");
+    const note   = document.getElementById("note");
+    const comm   = document.getElementById("commentaire");
+
+    if (pseudo.value.length === 0 || comm.value.length === 0) {
+        error.textContent = "Veuillez remplir tous les champs !";
+        error.classList.add("error");
+        return;
+    }
+
+    const newAvis = {
+        pseudoAvis: pseudo.value,
+        noteAvis: note.value,
+        commAvis: comm.value,
+        date: new Date().toLocaleDateString()
+    };
+
+    ajouterAvis(newAvis);
 });
 
-function AffichageAvis()
-{
-	const lstAvis = document.getElementById("avis-list");
-	lstAvis.textContent = "";
 
-	db.collection("avis").orderBy("date", "desc").get().then((querySnapshot) => {
-		querySnapshot.forEach((doc) => {
-			const avis = doc.data();
-			const pseudo = avis.pseudoAvis;
-			const date = avis.date;
-			const note = avis.noteAvis;
-			const comm = avis.commAvis;
+async function AffichageAvis() {
+    const lstAvis = document.getElementById("avis-list");
+    lstAvis.textContent = "";
 
-			const div = document.createElement("div");
-			div.classList.add("avis");
+    try {
+        const response = await fetch("/.netlify/functions/getAvis");
+        const data = await response.json();
 
-			div.innerHTML = `<h3>${pseudo} - ${date}</h3>
-			<p>Note : ${"⭐".repeat(note)}</p>
-			<p>${comm}</p>`;
+        data.forEach(avis => {
+            const { pseudoAvis, date, noteAvis, commAvis } = avis;
 
-			lstAvis.prepend(div);
-		});
-	});
+            const div = document.createElement("div");
+            div.classList.add("avis");
+
+            div.innerHTML = `<h3>${pseudoAvis} - ${date}</h3>
+                             <p>Note : ${"⭐".repeat(noteAvis)}</p>
+                             <p>${commAvis}</p>`;
+
+            lstAvis.prepend(div);
+        });
+
+    } catch (error) {
+        console.error("Erreur lors du chargement des avis :", error);
+    }
 }
 
 document.addEventListener("DOMContentLoaded", AffichageAvis);
+

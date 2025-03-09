@@ -1,49 +1,57 @@
-emailjs.init("ZfCbz8CCoCQtPFB4m");
-
 const form  = document.getElementById("form" );
 
-form.addEventListener("submit", (event) => {
-    event.preventDefault(); 
+document.getElementById("form").addEventListener("submit", async (event) => {
+    event.preventDefault();
 
-    const email = document.getElementById("mail" );
-    const objet = document.getElementById("objet");
-    const msg   = document.getElementById("msg"  );
+    const emailInput = document.getElementById("mail");
+    const subjectInput = document.getElementById("objet");
+    const messageInput = document.getElementById("msg");
     const error = document.getElementById("error");
 
     error.classList.remove("error");
 
-    if (email.value.length === 0 || objet.value.length === 0 || msg.value.length === 0) 
-		{
+    // Vérification des champs vides
+    if (!emailInput.value || !subjectInput.value || !messageInput.value) {
         error.textContent = "Veuillez remplir tous les champs.";
         error.classList.add("error");
         return;
     }
 
-    if (!email.value.includes("@") || !email.value.includes(".")) 
-		{
+    // Vérification d'un email valide
+    if (!emailInput.value.includes("@") || !emailInput.value.includes(".")) {
         error.textContent = "Veuillez entrer un email valide.";
         error.classList.add("error");
         return;
     }
 
-	const templateParams = {
-        from_email: email.value,
-        subject: objet.value,
-        message: msg.value
+    // Création de l'objet à envoyer
+    const emailData = {
+        email: emailInput.value,
+        subject: subjectInput.value,
+        message: messageInput.value
     };
 
-    error.classList.remove("error");
-    error.textContent = "";
+    try {
+        const response = await fetch("/.netlify/functions/email", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(emailData)
+        });
 
-    emailjs.send("service_oe15exr", "template_cgp80kk", templateParams)
-        .then(
-            (response) => {
-                alert("Message envoyé avec succès !");
-                form.reset();
-            },
-            (error) => {
-                error.classList.add("error");
-                error.textContent = "Erreur lors de l'envoi du message.";
-            }
-        );
+        const result = await response.json();
+
+        if (response.ok) {
+            alert("Message envoyé avec succès !");
+            emailInput.value = "";
+            subjectInput.value = "";
+            messageInput.value = "";
+        } else {
+            throw new Error(result.error || "Erreur lors de l'envoi");
+        }
+    } catch (err) {
+        console.error("Erreur :", err);
+        error.textContent = err.message;
+        error.classList.add("error");
+    }
 });
+
