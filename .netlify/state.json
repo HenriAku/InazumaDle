@@ -1,0 +1,21 @@
+{
+	"siteId": "36bf533b-de21-4b44-9e61-b3968cd9c4b2",
+	"geolocation": {
+		"data": {
+			"city": "Notre-Dame-de-Gravenchon",
+			"country": {
+				"code": "FR",
+				"name": "France"
+			},
+			"subdivision": {
+				"code": "NOR",
+				"name": "Normandy"
+			},
+			"timezone": "Europe/Paris",
+			"latitude": 49.4876,
+			"longitude": 0.5771,
+			"postalCode": "76330"
+		},
+		"timestamp": 1741525961452
+	}
+}
