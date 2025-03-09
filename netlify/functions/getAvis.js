@@ -31,11 +31,29 @@ exports.handler = async function(event, context) {
 
         } catch (error) {
             console.error("🔥 Erreur lors de la récupération des avis :", error);
+            return { statusCode: 500, body: JSON.stringify({ error: error.message }) };
+        }
+    }
 
-            return {
-                statusCode: 500,
-                body: JSON.stringify({ error: error.message })
-            };
+    if (event.httpMethod === "POST") {
+        try {
+            console.log("✏️ Ajout d'un nouvel avis...");
+            const newAvis = JSON.parse(event.body);
+
+            // Ajoute l'avis dans Firestore
+            await db.collection("avis").add({
+                pseudoAvis: newAvis.pseudoAvis,
+                noteAvis: newAvis.noteAvis,
+                commAvis: newAvis.commAvis,
+                date: new Date().toISOString()
+            });
+
+            console.log("✅ Avis ajouté !");
+            return { statusCode: 200, body: JSON.stringify({ message: "Avis ajouté !" }) };
+
+        } catch (error) {
+            console.error("🔥 Erreur lors de l'ajout de l'avis :", error);
+            return { statusCode: 500, body: JSON.stringify({ error: error.message }) };
         }
     }
 

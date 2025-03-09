@@ -38,8 +38,8 @@ exports.handler = async function (event) {
         });
 
         const mailOptions = {
-            from: process.env.EMAIL_USER,
-            to: email,
+            from: email,
+            to: process.env.EMAIL_USER,
             subject: subject,
             text: message
         };
