@@ -42,7 +42,10 @@ avisform.addEventListener("submit", (event) => {
         pseudoAvis: pseudo.value,
         noteAvis: note.value,
         commAvis: comm.value,
-        date: new Date().toLocaleDateString()
+        date: new Date().toLocaleString("fr-FR", { 
+            day: "2-digit", month: "2-digit", year: "numeric", 
+            hour: "2-digit", minute: "2-digit" 
+        })
     };
 
     ajouterAvis(newAvis);
