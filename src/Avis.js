@@ -1,16 +1,17 @@
 const firebaseConfig = {
-    apiKey: import.meta.env.FIREBASE_API_KEY,
-    authDomain: import.meta.env.FIREBASE_AUTH_DOMAIN,
-    projectId: import.meta.env.FIREBASE_PROJECT_ID,
-    storageBucket: import.meta.env.FIREBASE_STORAGE_BUCKET,
-    messagingSenderId: import.meta.env.FIREBASE_MESSAGING_SENDER_ID,
-    appId: import.meta.env.FIREBASE_APP_ID,
-    measurementId: import.meta.env.FIREBASE_MEASUREMENT_ID
+    apiKey: "AIzaSyBNQbBzLC93C0sRZ6QDxKItXwhT2Nw-DmA",
+    authDomain: "inazumadle-858d7.firebaseapp.com",
+    projectId: "inazumadle-858d7",
+    storageBucket: "inazumadle-858d7.firebasestorage.app",
+    messagingSenderId: "448835816107",
+    appId: "1:448835816107:web:360a015e036307fa6f05ee",
+    measurementId: "G-RYX5DLVYWR"
 };
 
 // Initialiser Firebase
 firebase.initializeApp(firebaseConfig);
-export const db = firebase.firestore();
+const db = firebase.firestore();
+
 
 const avisform = document.getElementById("form");
 
