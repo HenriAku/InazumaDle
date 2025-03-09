@@ -10,16 +10,19 @@ form.addEventListener("submit", (event) => {
     const msg   = document.getElementById("msg"  );
     const error = document.getElementById("error");
 
+    error.classList.remove("error");
 
     if (email.value.length === 0 || objet.value.length === 0 || msg.value.length === 0) 
 		{
         error.textContent = "Veuillez remplir tous les champs.";
+        error.classList.add("error");
         return;
     }
 
     if (!email.value.includes("@") || !email.value.includes(".")) 
 		{
         error.textContent = "Veuillez entrer un email valide.";
+        error.classList.add("error");
         return;
     }
 
@@ -29,15 +32,17 @@ form.addEventListener("submit", (event) => {
         message: msg.value
     };
 
+    error.classList.remove("error");
+    error.textContent = "";
+
     emailjs.send("service_oe15exr", "template_cgp80kk", templateParams)
         .then(
             (response) => {
-                console.log('SUCCESS!', response.status, response.text);
                 alert("Message envoyé avec succès !");
                 form.reset();
             },
             (error) => {
-                console.error('FAILED...', error);
+                error.classList.add("error");
                 error.textContent = "Erreur lors de l'envoi du message.";
             }
         );

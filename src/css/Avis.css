@@ -81,7 +81,7 @@ form div{
 	flex-direction:column ;
 }
 
-form div input {
+form div input,select {
 	margin-top: 2%;
     height: 50px; 
     font-size: 16px; 
@@ -92,7 +92,7 @@ form div input {
 form div textarea {
 	resize:none;
 	margin-top: 2%;
-    height: 200px; 
+    height: 150px; 
     font-size: 16px; 
     padding: 10px; 
     border-radius: 10px; 
@@ -118,6 +118,34 @@ form div textarea {
     transform: scale(1.1);
 }
 
+
+/* Avis */
+section{
+	background-color: white;
+}
+
+section h2{
+	color: #343434;
+	font-size: 2.5em;
+	margin-bottom: 2%;
+	text-align: center;
+	padding-top: 50px;
+}
+
+#avis-list{
+	padding-bottom: 50px;
+}
+
+.avis{
+	background-color: rgb(231, 228, 228);
+	padding: 2%;
+	margin: auto;
+	width: 30%;
+}
+
+.avis p{
+	margin-top: 2%;
+}
 
 /* footer */
 
