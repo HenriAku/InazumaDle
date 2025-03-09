@@ -66,7 +66,13 @@ async function AffichageAvis() {
             const div = document.createElement("div");
             div.classList.add("avis");
 
-            div.innerHTML = `<h3>${pseudoAvis} - ${date}</h3>
+            const formattedDate = new Date(date).toLocaleString("fr-FR", { 
+                day: "2-digit", month: "2-digit", year: "numeric", 
+                hour: "2-digit", minute: "2-digit" 
+            });
+            
+
+            div.innerHTML = `<h3>${pseudoAvis} - ${formattedDate}</h3>
                              <p>Note : ${"⭐".repeat(noteAvis)}</p>
                              <p>${commAvis}</p>`;
 
