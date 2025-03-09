@@ -1,4 +1,4 @@
-emailjs.init("ZfCbz8CCoCQtPFB4m");
+emailjs.init(process.env.EMAILJS_PUBLIC_KEY);
 
 const form  = document.getElementById("form" );
 
