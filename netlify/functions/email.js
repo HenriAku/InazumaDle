@@ -2,7 +2,28 @@ const nodemailer = require("nodemailer");
 
 exports.handler = async function (event) {
     if (event.httpMethod !== "POST") {
-        return { statusCode: 405, body: "Méthode non autorisée" };
+        return {
+            statusCode: 405,
+            headers: {
+                "Access-Control-Allow-Origin": "*", // Permet toutes les origines (à restreindre si besoin)
+                "Access-Control-Allow-Methods": "POST, OPTIONS",
+                "Access-Control-Allow-Headers": "Content-Type"
+            },
+            body: "Méthode non autorisée"
+        };
+    }
+
+    // Gérer les requêtes OPTIONS (préflight request pour CORS)
+    if (event.httpMethod === "OPTIONS") {
+        return {
+            statusCode: 200,
+            headers: {
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Methods": "POST, OPTIONS",
+                "Access-Control-Allow-Headers": "Content-Type"
+            },
+            body: "OK"
+        };
     }
 
     try {
@@ -11,24 +32,38 @@ exports.handler = async function (event) {
         const transporter = nodemailer.createTransport({
             service: "gmail",
             auth: {
-                user: process.env.EMAIL_USER, 
-                pass: process.env.EMAIL_PASS  
+                user: process.env.EMAIL_USER,
+                pass: process.env.EMAIL_PASS
             }
         });
 
-        // Contenu de l'email
         const mailOptions = {
-            from: email,
-            to: process.env.EMAIL_USER, 
+            from: process.env.EMAIL_USER,
+            to: email,
             subject: subject,
             text: message
         };
 
-        // Envoi du mail
         await transporter.sendMail(mailOptions);
 
-        return { statusCode: 200, body: JSON.stringify({ message: "Email envoyé avec succès !" }) };
+        return {
+            statusCode: 200,
+            headers: {
+                "Access-Control-Allow-Origin": "*", // Permettre l'accès depuis d'autres domaines
+                "Access-Control-Allow-Methods": "POST, OPTIONS",
+                "Access-Control-Allow-Headers": "Content-Type"
+            },
+            body: JSON.stringify({ message: "Email envoyé avec succès !" })
+        };
     } catch (error) {
-        return { statusCode: 500, body: JSON.stringify({ error: error.message }) };
+        return {
+            statusCode: 500,
+            headers: {
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Methods": "POST, OPTIONS",
+                "Access-Control-Allow-Headers": "Content-Type"
+            },
+            body: JSON.stringify({ error: error.message })
+        };
     }
 };
