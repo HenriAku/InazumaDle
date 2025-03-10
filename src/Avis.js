@@ -32,6 +32,8 @@ avisform.addEventListener("submit", (event) => {
     const note   = document.getElementById("note");
     const comm   = document.getElementById("commentaire");
 
+    error.textContent = "";
+
     if (pseudo.value.length === 0 || comm.value.length === 0) {
         error.textContent = "Veuillez remplir tous les champs !";
         error.classList.add("error");

@@ -9,6 +9,7 @@ document.getElementById("form").addEventListener("submit", async (event) => {
     const error = document.getElementById("error");
 
     error.classList.remove("error");
+    error.textContent = "";
 
     // Vérification des champs vides
     if (!emailInput.value || !subjectInput.value || !messageInput.value) {

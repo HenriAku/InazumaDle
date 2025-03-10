@@ -82,18 +82,22 @@ nav ul li a:hover {
     cursor: pointer;
     margin-top: 3%;
     margin-left: 13%;
-    font-size: 200%;
+    font-size: 1.5rem;
     border-radius: 20px;
-    width: 21vh;
-    height: 5vh;
+    padding: 10px 20px; 
     border: none;
     transition: background-color 0.3s, transform 0.2s;
+    
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap; 
 }
 
 #Accueil button:hover {
     background-color: rgb(245, 219, 172);
     transform: scale(1.1);
 }
+
 
 .hero-image {
     width: 60%;
@@ -128,8 +132,14 @@ nav ul li a:hover {
     color: white;
     padding: 20px;
     border-radius: 10px;
-    width: 300px;
+    width: 400px;
+    font-size: 1.2em;
 }
+
+.news-item p{
+    margin-top: 3%;
+}
+
 
 /* Présentation */
 #Présentation {
@@ -205,12 +215,15 @@ nav ul li a:hover {
     background-color: orange;
     color: #F5F5F5;
     cursor: pointer;
-    font-size: 200%;
+    font-size: 1.5rem;
     border-radius: 20px;
-    width: 21vh;
-    height: 5vh;
+    padding: 10px 20px; 
     border: none;
     transition: background-color 0.3s, transform 0.2s;
+    
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap; 
 }
 
 #Telechargement button:hover {
@@ -237,6 +250,9 @@ footer {
     color: white;
     padding-top: 10px;
     padding-left: 20px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
 }
 
 footer div{

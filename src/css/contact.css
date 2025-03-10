@@ -101,16 +101,21 @@ form div textarea {
 #btn {
     display: block; 
     margin: 3% auto 0 auto; 
+    font-size: 1.5rem;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap; 
     background-color: orange;
     color: #F5F5F5;
     cursor: pointer;
-    font-size: 180%;
     border-radius: 20px;
-    width: 19vh;
-    height: 4vh;
+    padding: 10px 20px; 
     border: none;
     transition: background-color 0.3s, transform 0.2s;
-    text-align: center;
+
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap; 
 }
 
 #btn:hover {
@@ -126,6 +131,9 @@ footer {
     color: white;
     padding-top: 10px;
     padding-left: 20px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
 }
 
 footer div{
